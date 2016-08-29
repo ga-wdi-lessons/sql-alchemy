@@ -4,11 +4,12 @@
 
 - Define ORM and why we use it over a database language.
 - Explain what SQLAlchemy is and what problems it solves.
-- Explain convention over configuration and how it relates to SQLAlchemy
 - Define a class that inherits from SA
 - Utilize SA to perform CRUD actions on a database
 - Establish relationships with SA
 - Seed a database using SA
+- Draw an Entity Relationship Diagram (ERD) using proper notation
+
 
 ## Framing
 

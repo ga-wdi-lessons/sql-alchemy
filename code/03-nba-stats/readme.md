@@ -43,6 +43,8 @@ It may help to think about the SQL being executed as well:
 
 5. The average age for all players
 
+> Hint: `from sqlalchemy.orm import func`
+
 6. The average age for all players on the Oklahoma City Thunder (OKC)
 
 7. The average age for all players who played more than 40 games
