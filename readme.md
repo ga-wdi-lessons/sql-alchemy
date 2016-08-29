@@ -82,6 +82,10 @@ class Person(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String(250), nullable=False)
 
+    # nicer output in the terminal
+    def __repr__(self):
+      return "Person(id=%r,name=%r)" % (self.id,self.name)
+
 # Create an engine that stores data in the local directory's
 # people.db file.
 engine = create_engine('sqlite:///people.db')
