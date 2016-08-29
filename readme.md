@@ -16,6 +16,8 @@ So far, you've learned how to interact with a database using SQL.
 
 Specifically, you used postgresql. In today's lesson, we're doing to work with SQLite, which is similar, but distributable via the file system.
 
+Today's all about querying the database using Python.
+
 ## Querying the DB w/ Python
 
 Instead of interacting with the database directly via the CLI (using a tool like `psql`), we can use the `sqlite3` module to use Python to query the DB.
@@ -204,6 +206,8 @@ Each address has a `person_id` field. You might want to think of this as "Each a
 
 ## We do: Modify people from 02 to have many addresses
 
+http://docs.sqlalchemy.org/en/latest/orm/basic_relationships.html
+
 ```python
 # person.py
 
@@ -220,6 +224,7 @@ class Person(Base):
     # Notice that each column is also a normal Python instance attribute.
     id = Column(Integer, primary_key=True)
     name = Column(String(250), nullable=False)
+    addresses = relationship(Address, back_populates="person")
 
 class Address(Base):
     __tablename__ = 'address'
@@ -230,7 +235,7 @@ class Address(Base):
     street_number = Column(String(250))
     post_code = Column(String(250), nullable=False)
     person_id = Column(Integer, ForeignKey('person.id'))
-    person = relationship(Person)
+    person = relationship(Person, back_populates='addresses')
 # Create an engine that stores data in the local directory's
 # people.db file.
 engine = create_engine('sqlite:///people.db')
