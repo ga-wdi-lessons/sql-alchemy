@@ -36,14 +36,31 @@ It may help to think about the SQL being executed as well:
 > `SELECT * from player WHERE team = 'NYK';`
 
 2. All columns for all players from the Indiana Packers (IND) who are under 26 years old
+
+> `session.query(Player).filter_by(team='IND').filter(Player.age < 26).all()`
+
 3. All columns for all players, ordered from least points scored to most points scored
-4. Name and Points per game (points/games), for the players with the top 20 points per game
+
+> `session.query(Player).order_by(Player.points).all()`
+
+4. Players with the top 20 points per game
+
+> `session.query(Player).order_by("points desc").limit(20).all()`
+
 5. The average age for all players
+
+> `session.query(func.avg(Player.age))`
+
 6. The average age for all players on the Oklahoma City Thunder (OKC)
+
+> `session.query(func.avg(Player.age)).filter_by(team='OKC').all()`
+
 7. The average age for all players who played more than 40 games
-8. The team and total points scored from all players on that team (team points), ordered from most team points to least
+
+> `session.query(func.avg(Player.age)).filter(Player.game > 40).all()`
 
 #### Bonus
 
+1. The team and total points scored from all players on that team (team points), ordered from most team points to least
 1. Age and the average points per game for that age, ordered from youngest to oldest
 1. Team and the the number of players who score above 12 points per game on that team, ordered from most to least
