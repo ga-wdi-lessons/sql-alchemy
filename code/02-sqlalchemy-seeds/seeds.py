@@ -18,8 +18,8 @@ DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
 # Insert a Person in the person table
-new_person = Person(name='new person')
-session.add(new_person)
+session.add(Person(name='new person'))
+session.add(Person(name='other third person'))
 session.commit()
 
 import code; code.interact(local=dict(globals(), **locals()))

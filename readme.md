@@ -103,3 +103,17 @@ class Address(Base):
 ### You do:
 
 Add a Job's model that belongs to a person: `A person has many jobs`
+
+## Joins
+
+### You do: Read
+
+http://docs.sqlalchemy.org/en/latest/orm/tutorial.html#querying-with-joins
+http://docs.sqlalchemy.org/en/latest/orm/tutorial.html#building-a-many-to-many-relationship
+
+### You do:
+
+Add a third model "Subject" to the harry potter example
+
+A Student has many Subjects
+A Subject has many Students
